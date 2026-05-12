@@ -55,6 +55,7 @@ def predict():
     file = request.files['image']
 
     image = Image.open(file.stream).convert("RGB")
+    image.thumbnail((640, 640))
 
     results = model(image)
 
