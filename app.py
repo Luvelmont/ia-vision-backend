@@ -99,13 +99,13 @@ def predict():
                 fill="white"
             )
 
-    buffer = io.BytesIO()
-    image.save(buffer, format="JPEG")
-    encoded_image = base64.b64encode(buffer.getvalue()).decode("utf-8")
+    # buffer = io.BytesIO()
+    # image.save(buffer, format="JPEG")
+    # encoded_image = base64.b64encode(buffer.getvalue()).decode("utf-8")
 
     return jsonify({
-        "detections": detections,
-        "image": f"data:image/jpeg;base64,{encoded_image}"
+        "detections": detections
+        # "image": f"data:image/jpeg;base64,{encoded_image}"
     })
 
 if __name__ == '__main__':
