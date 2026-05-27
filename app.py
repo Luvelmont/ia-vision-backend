@@ -76,6 +76,7 @@ def predict():
 
     response = requests.post(url, json=payload)
     result = response.json()
+    print(result)
 
     if "error" in result:
         return jsonify(result), 500
