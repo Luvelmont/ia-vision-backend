@@ -11,7 +11,7 @@ CORS(app)
 
 app.config["MAX_CONTENT_LENGTH"] = 4 * 1024 * 1024
 
-API_KEY = os.environ.get("GOOGLE_VISION_API_KEY")
+API_KEY = os.environ.get("GOOGLE_VISION_API")
 
 translations = {
     "Person": "El próximo Ingeniero en Sistemas",
@@ -42,7 +42,8 @@ def home():
 @app.route("/predict", methods=["POST"])
 def predict():
     if not API_KEY:
-        return jsonify({"error": "Missing GOOGLE_VISION_API_KEY"}), 500
+        print("NO EXISTE API KEY")
+        return jsonify({"error": "Missing GOOGLE_VISION_API"}), 500
 
     if "image" not in request.files:
         return jsonify({"error": "No image uploaded"}), 400
